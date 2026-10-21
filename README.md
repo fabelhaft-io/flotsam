@@ -25,16 +25,27 @@ products. Having your own copy of that data matters for several reasons:
   vendor's own AI features, API limits or add-on prices.
 - **Vendors change.** Services get acquired, change their terms or shut down, sometimes on
   short notice. Your copy doesn't depend on any of that.
+- **Records you must keep.** Invoices, contracts and support history often have to be kept
+  for years, longer than you use the tool that holds them. Laws can also require keeping
+  data longer than the service itself keeps it, for example when it deletes old records
+  after a fixed period or removes everything soon after you cancel.
+- **Outages.** When a service is down, your copy isn't. You can still look up the
+  specification, the customer's ticket history or the code, and keep working. Outages can
+  last longer than you'd think: in 2022, some Atlassian customers couldn't reach Jira and
+  Confluence for
+  [up to two weeks](https://www.atlassian.com/blog/it-teams/post-incident-review-april-2022-outage).
+- **Locked accounts.** A failed payment, a billing dispute or an automated suspension can
+  lock you out of your own data, often exactly when you need it.
+- **Sanctions and trade rules.** Governments can forbid vendors to serve certain countries
+  or companies, and access can end without warning. In 2019, GitHub
+  [restricted private repositories and paid accounts](https://www.geekwire.com/2019/microsoft-owned-github-restricts-accounts-countries-facing-u-s-sanctions-including-iran-syria/)
+  of users in Iran, Syria and Crimea to comply with US trade controls, without prior notice.
 - **Even the vendor's safeguards can fail.** In September 2025, a fire in South Korea's
   government data center destroyed G-Drive, the cloud storage of about 125,000 government
   employees. It had no backup anywhere else, and much of its roughly 858 TB of files was
   [lost for good](https://www.datacenterdynamics.com/en/news/858tb-of-government-data-may-be-lost-for-good-after-south-korea-data-center-fire).
   Copies that live inside the same service share its fate; a second, independent copy
   doesn't.
-- **Records you must keep.** Invoices, contracts and support history often have to be kept
-  for years, longer than you use the tool that holds them. Laws can also require keeping
-  data longer than the service itself keeps it, for example when it deletes old records
-  after a fixed period or removes everything soon after you cancel.
 
 Most services offer some kind of export, but each one is different, manual and incomplete.
 flotsam gives you one tool, one config file and one snapshot format for all of them.
