@@ -11,9 +11,28 @@ writes it to storage you control, in plain, documented formats you can read with
 
 ## Why
 
-SaaS vendors keep your data safe from *their* failures, but not from yours: a deleted
-project, a compromised account, a cancelled subscription, or a vendor that shuts down. Most
-services offer some kind of export, but each one is different, manual, and incomplete.
+Your company's knowledge, code, customers and records increasingly live in other people's
+products. Having your own copy of that data matters for several reasons:
+
+- **Recovery.** SaaS vendors keep your data safe from *their* failures, but not from yours:
+  a deleted project, a compromised account or a cancelled subscription.
+- **Freedom to switch.** With your data in plain, documented formats, moving to another
+  vendor is a migration you can plan, not a negotiation with the vendor you are leaving. A
+  price increase or a worse product becomes a choice instead of a trap.
+- **Vendors change.** Services get acquired, change their terms or shut down, sometimes on
+  short notice. Your copy doesn't depend on any of that.
+- **Even the vendor's safeguards can fail.** In September 2025, a fire in South Korea's
+  government data center destroyed G-Drive, the cloud storage of about 125,000 government
+  employees. It had no backup anywhere else, and much of its roughly 858 TB of files was
+  [lost for good](https://www.datacenterdynamics.com/en/news/858tb-of-government-data-may-be-lost-for-good-after-south-korea-data-center-fire).
+  Copies that live inside the same service share its fate; a second, independent copy
+  doesn't.
+- **Records you must keep.** Invoices, contracts and support history often have to be kept
+  for years, longer than you use the tool that holds them. Laws can also require keeping
+  data longer than the service itself keeps it, for example when it deletes old records
+  after a fixed period or removes everything soon after you cancel.
+
+Most services offer some kind of export, but each one is different, manual and incomplete.
 flotsam gives you one tool, one config file and one snapshot format for all of them.
 
 ## Goals
