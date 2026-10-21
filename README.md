@@ -19,6 +19,10 @@ products. Having your own copy of that data matters for several reasons:
 - **Freedom to switch.** With your data in plain, documented formats, moving to another
   vendor is a migration you can plan, not a negotiation with the vendor you are leaving. A
   price increase or a worse product becomes a choice instead of a trap.
+- **Use your data your way.** A local copy in plain JSON and git works with any tool you
+  like: AI assistants, search, analytics or your own scripts. You choose which AI sees the
+  data and where it runs, even fully local models, instead of being limited to the
+  vendor's own AI features, API limits or add-on prices.
 - **Vendors change.** Services get acquired, change their terms or shut down, sometimes on
   short notice. Your copy doesn't depend on any of that.
 - **Even the vendor's safeguards can fail.** In September 2025, a fire in South Korea's
