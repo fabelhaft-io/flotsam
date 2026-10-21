@@ -113,7 +113,13 @@ flotsam gives you one tool, one config file and one snapshot format for all of t
 *Planned* providers are on the roadmap; *maybe* means a good candidate whose API still needs a
 closer look.
 
-Missing something? [Write a provider](#writing-a-provider). Contributions are very welcome.
+Every provider depends on a vendor's API, and vendors change their APIs: endpoints move,
+permissions change, rate limits get stricter. The more providers flotsam has, the more often
+one of them will break. flotsam is maintained as well as possible, but on a best-effort
+basis. If a provider breaks or something is missing, please
+[open an issue](https://github.com/fabelhaft-io/flotsam/issues), send a fix, or
+[write a provider](#writing-a-provider). Contributions are very welcome. The Apache 2.0
+license also lets you fork flotsam and adapt it to your own needs.
 
 ## Usage
 
