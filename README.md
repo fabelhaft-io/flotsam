@@ -33,13 +33,62 @@ flotsam gives you one tool, one config file and one snapshot format for all of t
 - **Restore.** The first priority is getting data out reliably. Restoring into a service is
   much harder and differs a lot between services. It may come later, per provider.
 - **Hosted service.** flotsam is a tool you run yourself.
+- **Encryption.** flotsam never encrypts backups, because a mistake there could leave
+  backups nobody can decrypt. Use encrypted storage instead; see
+  [Keeping backups safe is up to you](#keeping-backups-safe-is-up-to-you).
 
 ## Providers
 
-| Provider | Status | What gets backed up |
-|----------|--------|---------------------|
-| [`github`](providers/github/README.md) | available | Repositories and wikis (git bundles), issues, pull requests, comments, releases, labels, milestones |
-| `jira` | planned | Projects, issues, comments, attachments |
+| Provider | Service | Status | What gets backed up |
+|----------|---------|--------|---------------------|
+| [`github`](providers/github/README.md) | Code hosting and collaboration | available | Repositories and wikis (git bundles), issues, pull requests, comments, releases, labels, milestones |
+| `gitlab` | Code hosting and DevOps platform | planned | Repositories and wikis (git bundles), issues, merge requests, comments, releases |
+| `bitbucket` | Atlassian's code hosting | planned | Repositories (git bundles), pull requests, comments |
+| `jira` | Atlassian's project and issue tracking | planned | Spaces, work items, comments, attachments |
+| `confluence` | Atlassian's team wiki | planned | Spaces, pages, blog posts, comments, attachments |
+| `linear` | Issue tracking for software teams | planned | Teams, projects, issues, comments, attachments |
+| `notion` | Notes, wikis and databases in one workspace | planned | Pages, databases and their rows, comments, files |
+| `trello` | Kanban boards | planned | Boards, lists, cards, comments, checklists, attachments |
+| `asana` | Work and project management | planned | Projects, tasks, subtasks, comments, attachments |
+| `airtable` | Spreadsheet-like databases | planned | Bases, tables, records, attachments |
+| `zendesk` | Customer support and help center | planned | Tickets, comments, users, organizations, help center articles, attachments |
+| `git` | Any git server, hosted or self-hosted | maybe | Any git repository by URL, such as Gitea, Forgejo or Codeberg (git bundles) |
+| `azure-devops` | Microsoft's boards, repositories and pipelines | maybe | Work items, comments, attachments, repositories and wikis (git bundles) |
+| `youtrack` | JetBrains' issue tracker and knowledge base | maybe | Issues, comments, attachments, knowledge base articles |
+| `clickup` | Project management and docs | maybe | Tasks, comments, attachments, docs |
+| `monday` | Work management boards | maybe | Boards, items, updates, files |
+| `shortcut` | Project management for software teams | maybe | Stories, epics, comments, files |
+| `wrike` | Project management for larger teams | maybe | Projects, tasks, comments, attachments |
+| `coda` | Docs that work like apps | maybe | Docs, pages, tables and rows |
+| `gitbook` | Documentation sites and knowledge bases | maybe | Spaces, pages |
+| `outline` | Team wiki, also self-hosted | maybe | Collections, documents (Markdown) |
+| `guru` | Company knowledge base | maybe | Collections, cards |
+| `figma` | Interface design and whiteboards (FigJam) | maybe | Files as JSON and rendered images, comments, versions (not re-importable into Figma) |
+| `miro` | Online whiteboards | maybe | Boards and their items |
+| `penpot` | Open-source design tool | maybe | Projects, files |
+| `hubspot` | CRM, marketing and sales | maybe | Contacts, companies, deals, tickets, notes |
+| `pipedrive` | Sales CRM | maybe | Deals, people, organizations, activities, notes |
+| `contentful` | Headless CMS | maybe | Spaces, content types, entries, assets |
+| `sanity` | Headless CMS | maybe | Documents, assets |
+| `typeform` | Online forms and surveys | maybe | Forms, responses |
+| `flexport` | Freight forwarding and logistics | maybe | Shipments, bookings, purchase orders, invoices, documents |
+| `shippo` | Shipping labels and tracking | maybe | Shipments, labels, tracking |
+| `easypost` | Shipping labels and tracking API | maybe | Shipments, labels, tracking |
+| `lexoffice` | Accounting and invoicing (Germany) | maybe | Invoices, quotations, vouchers, contacts, files |
+| `sevdesk` | Accounting and invoicing (Germany) | maybe | Invoices, vouchers, contacts, documents |
+| `stripe` | Online payments and billing | maybe | Customers, invoices, payments, subscriptions |
+| `shopify` | Online stores | maybe | Orders, products, customers |
+| `freshdesk` | Customer support help desk | maybe | Tickets, conversations, contacts, knowledge base articles |
+| `intercom` | Customer messaging and support | maybe | Conversations, contacts, help center articles |
+| `toggl` | Time tracking | maybe | Time entries, projects, clients |
+| `harvest` | Time tracking and invoicing | maybe | Time entries, projects, clients, invoices |
+| `mailchimp` | Email marketing | maybe | Audiences, campaigns, templates |
+| `calendly` | Meeting scheduling | maybe | Event types, scheduled events |
+| `personio` | HR and payroll for small and medium companies | maybe | Employees, absences, attendances, documents |
+| `bamboohr` | HR software | maybe | Employees, time off, files |
+
+*Planned* providers are on the roadmap; *maybe* means a good candidate whose API still needs a
+closer look.
 
 Missing something? [Write a provider](#writing-a-provider). Contributions are very welcome.
 
@@ -140,6 +189,23 @@ manifest. [docs/snapshot-format.md](docs/snapshot-format.md) describes the forma
 
 `flotsam backup` exits with 0 if every backup is complete, 1 if any failed or was partial
 (or the configuration is invalid), and 2 if the command line is wrong.
+
+## Keeping backups safe is up to you
+
+flotsam creates backups. It doesn't protect them once they are written:
+
+- **No encryption.** Snapshots are plain files. If they need to be encrypted, use encrypted
+  storage (an encrypted disk or bucket) or encrypt the snapshots yourself.
+- **No access control.** Whoever can read the storage can read every backup. Local storage
+  creates files readable only by their owner, but anything beyond that is up to you.
+- **Personal data.** Backups hold whatever the services hold, often personal data of
+  customers or employees, especially from CRM, support and HR tools. Complying with data
+  protection law such as the GDPR (retention periods, deletion requests, who may access
+  the data) is the responsibility of whoever runs flotsam.
+- **Credentials.** Managing tokens is up to you; use read-only tokens with the narrowest
+  permissions that cover what you back up.
+
+flotsam is provided as is, without warranty, under the [Apache License 2.0](LICENSE).
 
 ## Writing a provider
 

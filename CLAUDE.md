@@ -102,6 +102,9 @@ stable. Everything else goes in `internal/`; `pkg/` may import `internal/` packa
   `Backup` only when the backup as a whole can't continue.
 - **Snapshots are append-only and self-describing.** The manifest is written last, so a
   snapshot without one is incomplete. Never change files in an existing snapshot.
+- **No encryption, ever.** flotsam writes plain files and leaves encryption to the storage
+  or the user. Don't add encryption features or options: a bug there could make backups
+  undecryptable, and the project doesn't take that responsibility.
 - **Optional features use optional interfaces.** Like `storage.Locator`, an optional
   capability is a separate interface that the core detects with a type assertion, not an
   extra method every implementation must have.
