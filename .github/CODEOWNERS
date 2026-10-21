@@ -1,0 +1,6 @@
+# Reviewers are requested automatically for the paths below. The last matching
+# pattern wins, so add provider maintainers below the default, for example:
+#
+#   /providers/jira/   @some-jira-maintainer
+
+*   @LucasBrandenburg

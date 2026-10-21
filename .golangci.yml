@@ -1,0 +1,33 @@
+version: "2"
+
+linters:
+  # standard: errcheck, govet, ineffassign, staticcheck, unused
+  default: standard
+  enable:
+    - bodyclose     # unclosed HTTP response bodies
+    - errorlint     # error comparisons that break with wrapping
+    - gosec         # common security mistakes
+    - misspell
+    - noctx         # HTTP requests without a context
+    - nolintlint    # every //nolint must be specific and explained
+    - unconvert
+    - usestdlibvars
+  settings:
+    nolintlint:
+      require-explanation: true
+      require-specific: true
+  exclusions:
+    rules:
+      # These tests build responses in helpers and close them in t.Cleanup,
+      # which bodyclose can't follow.
+      - path: internal/httpclient/httpclient_test.go
+        linters: [bodyclose]
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
+  settings:
+    goimports:
+      local-prefixes:
+        - github.com/fabelhaft-io/flotsam

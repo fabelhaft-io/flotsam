@@ -1,0 +1,60 @@
+name: Bug report
+description: Something doesn't work as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this.
+
+        **Never paste tokens, passwords or other secrets**, and remove personal data from
+        logs and config. For security issues, please use
+        [private vulnerability reporting](https://github.com/fabelhaft-io/flotsam/security/advisories/new)
+        instead of a public issue.
+
+  - type: input
+    id: version
+    attributes:
+      label: flotsam version
+      description: Output of `flotsam version`
+    validations:
+      required: true
+
+  - type: input
+    id: provider
+    attributes:
+      label: Provider
+      description: Which provider is affected, if any? For example `github`.
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      description: For example Ubuntu 24.04, macOS 15, Windows 11, or the Docker image
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How can we reproduce it?
+      description: The command you ran and your config file, with secrets removed.
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log output
+      description: Relevant log lines, with secrets and personal data removed.
+      render: text

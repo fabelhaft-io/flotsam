@@ -1,0 +1,58 @@
+name: Provider request
+description: Propose backing up a new service
+labels: [provider]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please check the [existing provider requests](https://github.com/fabelhaft-io/flotsam/issues?q=label%3Aprovider)
+        first, so nobody works on the same provider twice.
+
+  - type: input
+    id: service
+    attributes:
+      label: Service
+      description: Name and website, for example "Linear (https://linear.app)"
+    validations:
+      required: true
+
+  - type: input
+    id: api-docs
+    attributes:
+      label: API documentation
+      description: Link to the service's public API docs
+    validations:
+      required: true
+
+  - type: textarea
+    id: data
+    attributes:
+      label: What should be backed up?
+      description: The kinds of data that matter, for example projects, issues, comments, attachments.
+    validations:
+      required: true
+
+  - type: textarea
+    id: auth
+    attributes:
+      label: Authentication
+      description: How does the API authenticate (API token, OAuth, ...)? Is read-only access possible?
+
+  - type: textarea
+    id: targets
+    attributes:
+      label: Targets
+      description: >
+        Which URLs would you pass as `targets` to back up part of an account?
+        For example a workspace or project URL.
+
+  - type: dropdown
+    id: contribute
+    attributes:
+      label: Would you like to implement it?
+      options:
+        - "Yes"
+        - "Yes, with some help"
+        - "No"
+    validations:
+      required: true

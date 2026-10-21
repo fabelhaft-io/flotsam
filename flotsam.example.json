@@ -1,0 +1,24 @@
+{
+  "storage": {
+    "type": "local",
+    "settings": { "path": "./backups" }
+  },
+  "sources": [
+    {
+      "name": "work-github",
+      "provider": "github",
+      "settings": {
+        "targets": ["https://github.com/<your-org>", "https://github.com/<other-owner>/<repository>"],
+        "skip_forks": true
+      }
+    },
+    {
+      "name": "work-jira",
+      "provider": "jira",
+      "settings": {
+        "url": "https://<your-site>.atlassian.net",
+        "email": "<you@example.com>"
+      }
+    }
+  ]
+}

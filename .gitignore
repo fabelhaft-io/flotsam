@@ -1,0 +1,39 @@
+# Binaries
+/flotsam
+/flotsam.exe
+/bin/
+/dist/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test and coverage output
+*.test
+*.out
+coverage.*
+*.prof
+
+# Go workspace files (local multi-module setups)
+go.work
+go.work.sum
+
+# Local config and secrets
+.env
+.env.*
+/flotsam.json
+
+# Local backup output
+/backups/
+
+# Editors and OS
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Claude Code local settings
+.claude/settings.local.json
+/plans/

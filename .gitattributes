@@ -1,0 +1,5 @@
+# Keep LF line endings in the repo and in checkouts on every OS, so gofmt and
+# test fixtures behave the same on Windows.
+* text=auto eol=lf
+
+*.bundle binary
